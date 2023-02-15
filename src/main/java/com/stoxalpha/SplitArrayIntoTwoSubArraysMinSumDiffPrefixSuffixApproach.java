@@ -36,7 +36,7 @@ public class SplitArrayIntoTwoSubArraysMinSumDiffPrefixSuffixApproach {
         for (int i = n - 2; i >= 0; i--) {
             suffix_sum[i] = suffix_sum[i+1] + arr[i];
         }
-r
+
         int minDiff = Integer.MAX_VALUE;
 
         for (int i = 0; i < n-1; i++) {
