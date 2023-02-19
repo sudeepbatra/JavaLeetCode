@@ -122,7 +122,7 @@ public class LinkedList {
                 uniques.add(current.data);
                 previous = current;
             }
-            
+
             current = current.next;
         }
     }
