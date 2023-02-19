@@ -1,5 +1,7 @@
 package com.stoxalpha;
 
+import java.util.HashSet;
+
 public class LinkedList {
 
     private static class Node {
@@ -75,7 +77,7 @@ public class LinkedList {
                 count++;
             }
 
-            return count;
+            return ++count;
         }
     }
 
@@ -101,6 +103,26 @@ public class LinkedList {
                 return;
             }
 
+            current = current.next;
+        }
+    }
+
+    public void removeDuplicates() {
+        removeDuplicates(this.head);
+    }
+
+    private void removeDuplicates(Node current) {
+        HashSet<Integer> uniques = new HashSet<>();
+        Node previous = null;
+
+        while (current != null) {
+            if (uniques.contains(current.data)) {
+                previous.next = current.next;
+            } else {
+                uniques.add(current.data);
+                previous = current;
+            }
+            
             current = current.next;
         }
     }
