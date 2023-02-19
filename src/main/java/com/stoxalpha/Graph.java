@@ -3,10 +3,10 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 public class Graph {
-    private int V; //No of vertices
+    private final int V; //No of vertices
 
     // Array of LinkedList
-    private LinkedList<Integer> adj[];
+    private final LinkedList<Integer>[] adj;
 
     Graph(int v) {
         this.V = v;
@@ -23,7 +23,7 @@ public class Graph {
     //BFS from a given source s
     public void breadthFirstSearch(int s) {
         //Mark all the vertices as not visited (false)
-        boolean visited[] = new boolean[this.V];
+        boolean[] visited = new boolean[this.V];
 
         //Create a queue for BFS
         LinkedList<Integer> queue = new LinkedList<Integer>();
