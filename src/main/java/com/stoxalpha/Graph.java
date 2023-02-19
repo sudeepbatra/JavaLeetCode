@@ -1,6 +1,7 @@
 package com.stoxalpha;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class Graph {
     private final int V; //No of vertices
@@ -46,6 +47,29 @@ public class Graph {
                     visited[n] = true;
                     System.out.println("Queueing " + n);
                     queue.add(n);
+                }
+            }
+        }
+    }
+
+    //Depth First from a given source s
+    public void depthFirstSearch(int s) {
+        boolean[] visited = new boolean[this.V];
+
+        Stack<Integer> stack = new Stack<>();
+        stack.add(s);
+        visited[s] = true;
+
+        while (!stack.isEmpty()) {
+            int current = stack.pop();
+            System.out.println(current + " ");
+
+            Iterator<Integer> iterator = adj[current].listIterator();
+            while (iterator.hasNext()) {
+                int n = iterator.next();
+                if (!visited[n]) {
+                    stack.add(n);
+                    visited[n] = true;
                 }
             }
         }
