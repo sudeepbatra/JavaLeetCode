@@ -10,16 +10,18 @@ public class NQueensProblem {
     }
 
     public void solve() {
-        if (setQueens(0)) {
+        if (solveQueenForColIndex(0)) {
             printQueens();
         } else {
             System.out.println("There is no solution ...");
         }
     }
 
-    private boolean setQueens(int colIndex) {
-        System.out.println("Solving Queens Setting for colIndex: " +colIndex);
+    private boolean solveQueenForColIndex(int colIndex) {
+        System.out.println("Solving Queen solution for colIndex: " +colIndex);
+
         if (colIndex == numberOfQueens) {
+            System.out.println("Solution Found.");
             return true;
         }
 
@@ -27,11 +29,13 @@ public class NQueensProblem {
             if (isPlaceValid(rowIndex, colIndex)) {
                 chessTable[rowIndex][colIndex] = 1;
 
-                if (setQueens(colIndex + 1)) {
+                if (solveQueenForColIndex(colIndex + 1)) {
+                    System.out.println("Solution true for colIndex + 1: " + colIndex + 1);
                     return true;
                 }
 
                 //Backtrack
+                System.out.println("Backtracking for colIndex: " + colIndex);
                 chessTable[rowIndex][colIndex] = 0;
             }
         }
